@@ -8,6 +8,7 @@ const audioAlert = document.getElementById("audioAlert");
 
 startTimerButton.addEventListener("click", startNewTimer)
 
+
 const paragra = document.getElementById("paragra")
 
 let timers = [];
@@ -61,10 +62,24 @@ function startNewTimer(secondss) {
         timerCountdown.textContent = formatTime(timer.timeLeft);
 
         if (timer.timeLeft === 0) {
-            clearInterval(timer.intervalId);
+        
+            timerDisplay.classList.remove("container3");
+            timerDisplay.classList.add("nonedisplay");
+            const newdiv = document.createElement("div")
+            newdiv.innerText=("Timer Is Up !");
+            newdiv.classList.add("container3");
+            const newbtn = document.createElement("button");
+            newbtn.innerText=("stop")
+            newdiv.appendChild(newbtn)
+            activeTimersDisplay.appendChild(newdiv)
             timerCountdown.textContent = "00:00:00";
             timerDisplay.classList.add("timer-ended");
             audioAlert.play();
+            newbtn.addEventListener("click", ()=> {
+                audioAlert.pause();
+                newdiv.classList.remove("container3")
+                newdiv.classList.add("nonedisplay")
+            })
         }
     }, 1000);
 
