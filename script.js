@@ -8,14 +8,20 @@ const audioAlert = document.getElementById("audioAlert");
 
 startTimerButton.addEventListener("click", startNewTimer)
 
+
+
 let timers = [];
 
 
 function startNewTimer(secondss) {
+    
     const hours = parseInt(document.getElementById("hours").value) || 0;
     const minutes = parseInt(document.getElementById("minutes").value) || 0;
     const second = parseInt(document.getElementById("second").value) || 0;
     const totalTime = hours * 3600 + minutes*60 + second;
+
+
+   
     
     if (totalTime === 0) return;
     
@@ -35,11 +41,10 @@ function startNewTimer(secondss) {
     const timerCountdown = document.createElement("div");
     timerCountdown.classList.add("belowcontest");
     timerCountdown.textContent = formatTime(timer.timeLeft);
-
     const stopTimerBtn = document.createElement("button");
+    stopTimerBtn.classList.add("buttttttnnn")
     stopTimerBtn.textContent = "Delete";
     stopTimerBtn.addEventListener("click", () => stopTimer(timer));
-
     timerDisplay.appendChild(timerCountdown);
     timerDisplay.appendChild(stopTimerBtn);
     activeTimersDisplay.appendChild(timerDisplay);
@@ -59,7 +64,6 @@ function startNewTimer(secondss) {
     }, 1000);
 
     timers.push(timer);  
-
 }
 
 function stopTimer(timer) {
@@ -68,6 +72,8 @@ function stopTimer(timer) {
     timers = timers.filter(t => t !== timer);
 }
 
+
+
 function formatTime(seconds) {
     const h = Math.floor(seconds / 3600);
     const m = Math.floor((seconds % 3600) / 60);
@@ -75,6 +81,11 @@ function formatTime(seconds) {
     return `${h.toString().padStart(2, "0")}:${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
 }
 
+// const buttttttnnn = document.getElementById("buttttttnnn")
+
+// buttttttnnn.addEventListener("click", (stopmusic)=> {
+//     audioAlert.pause();
+// })
 
 
 
