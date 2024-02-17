@@ -8,7 +8,7 @@ const audioAlert = document.getElementById("audioAlert");
 
 startTimerButton.addEventListener("click", startNewTimer)
 
-
+const paragra = document.getElementById("paragra")
 
 let timers = [];
 
@@ -20,11 +20,16 @@ function startNewTimer(secondss) {
     const second = parseInt(document.getElementById("second").value) || 0;
     const totalTime = hours * 3600 + minutes*60 + second;
 
-
+    if (totalTime !== 0) {
+        paragra.classList.add("nonedisplay")
+        // hours.value = "";
+        // minutes.value = "";
+        // second.value = "";
+    }
    
     
     if (totalTime === 0) return;
-    
+  
 
     const timer = {
         totalTime,
