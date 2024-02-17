@@ -67,9 +67,9 @@ function startNewTimer(secondss) {
             timerDisplay.classList.add("nonedisplay");
             const newdiv = document.createElement("div")
             newdiv.innerText=("Timer Is Up !");
-            newdiv.classList.add("container3");
+            newdiv.classList.add("container4");
             const newbtn = document.createElement("button");
-            newbtn.innerText=("stop")
+            newbtn.innerText=("Stop")
             newdiv.appendChild(newbtn)
             activeTimersDisplay.appendChild(newdiv)
             timerCountdown.textContent = "00:00:00";
@@ -77,7 +77,7 @@ function startNewTimer(secondss) {
             audioAlert.play();
             newbtn.addEventListener("click", ()=> {
                 audioAlert.pause();
-                newdiv.classList.remove("container3")
+                newdiv.classList.remove("container4")
                 newdiv.classList.add("nonedisplay")
             })
         }
